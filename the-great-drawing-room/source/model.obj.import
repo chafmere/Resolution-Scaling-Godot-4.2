@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c8chibh2mtjws"
+path="res://.godot/imported/model.obj-78610c1a0791180ec99cabb7de0befe1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/model.obj-78610c1a0791180ec99cabb7de0befe1.mesh"]
+
+source_file="res://the-great-drawing-room/source/model.obj"
+dest_files=["res://.godot/imported/model.obj-78610c1a0791180ec99cabb7de0befe1.mesh", "res://.godot/imported/model.obj-78610c1a0791180ec99cabb7de0befe1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

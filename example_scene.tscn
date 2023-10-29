@@ -1,0 +1,212 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdm66iqrrsciq"]
+
+[ext_resource type="ArrayMesh" uid="uid://c8chibh2mtjws" path="res://the-great-drawing-room/source/model.obj" id="1_bi88y"]
+[ext_resource type="PackedScene" uid="uid://drbs8u6ai0tym" path="res://options_example.tscn" id="2_mow8o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s0yy2"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hy0y6"]
+sky_material = SubResource("ProceduralSkyMaterial_s0yy2")
+
+[sub_resource type="Environment" id="Environment_5maqb"]
+background_mode = 2
+sky = SubResource("Sky_hy0y6")
+tonemap_mode = 3
+sdfgi_enabled = true
+sdfgi_cascades = 8
+sdfgi_energy = 2.495
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 3.19
+glow_strength = 0.7
+glow_bloom = 0.21
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
+[sub_resource type="Animation" id="Animation_6v4r7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(11.53, 3.525, 7.192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dt02d"]
+resource_name = "fly"
+length = 120.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20, 40, 60, 80, 100, 120),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(11.53, 3.525, 8.627), Vector3(11.53, 3.525, -2.843), Vector3(0.825, 3.525, -2.843), Vector3(-12.33, 3.525, -2.843), Vector3(-12.125, 3.61, 6.897), Vector3(-6.025, 6.08, 7.787), Vector3(10.745, 4.975, 7.542)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.9, 26.2, 52.9, 80, 100, 120),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0.0523599, 3.88336, 0), Vector3(0.0523599, 5.57633, 0), Vector3(-0.493928, 6.30064, 0), Vector3(-0.493928, 7.85398, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_80smp"]
+_data = {
+"RESET": SubResource("Animation_6v4r7"),
+"fly": SubResource("Animation_dt02d")
+}
+
+[node name="Example_scene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5maqb")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.742455, 0, -0.669896, 0, 1, 0, 0.669896, 0, 0.742455, 0, 0, 3.8897)
+mesh = ExtResource("1_bi88y")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.48709, 7.93457, -4.59308)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.00586, -1.90346, 8.70458)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.8118, -2.54707, 13.307)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0548935, -1.11345, 13.9916)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.58983, -1.11345, 13.9916)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.0313, -1.11345, 13.9916)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.0313, -1.11345, 3.93944)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.0313, -1.11345, -0.577067)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.0313, -1.11345, -10.755)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.8586, -1.11345, -10.755)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00649881, -0.897459, -10.9815)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.94548, -1.94059, 8.64759)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.00586, -1.64816, -5.61617)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.94548, -1.68528, -5.67315)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0703144, 0.00645208, 3.28852)
+light_color = Color(0.898039, 0.898039, 0.827451, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Node3D"]
+light_color = Color(1, 0.9475, 0.37, 1)
+shadow_enabled = true
+omni_range = 94.422
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, -0.945211, -0.326459, 0, -0.326459, 0.945211, -1, 4.13165e-08, 1.427e-08, -1.23008, 1.26451, 8.48515)
+light_color = Color(0.14902, 0.392157, 0.72549, 1)
+light_energy = 16.0
+spot_range = 11.3656
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Node3D"]
+transform = Transform3D(-4.37114e-08, -0.945211, -0.326459, 0, -0.326459, 0.945211, -1, 4.13165e-08, 1.427e-08, -1.42034, 1.26451, -5.8272)
+light_color = Color(0.14902, 0.392157, 0.72549, 1)
+light_energy = 16.0
+spot_range = 11.3656
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 11.53, 3.525, 7.192)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_80smp")
+}
+autoplay = "fly"
+
+[node name="Options_Example" parent="." instance=ExtResource("2_mow8o")]

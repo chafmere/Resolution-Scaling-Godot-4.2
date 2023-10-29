@@ -1,0 +1,24 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://hc87ailycqyl"]
+
+[ext_resource type="Texture2D" uid="uid://bmdyfpgyx6tpj" path="res://Epic_BlueSunset_EquiRect_flat.png" id="1_y340x"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1qsuq"]
+panorama = ExtResource("1_y340x")
+
+[sub_resource type="Sky" id="Sky_hy0y6"]
+sky_material = SubResource("PanoramaSkyMaterial_1qsuq")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_hy0y6")
+tonemap_mode = 3
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_cascades = 8
+glow_enabled = true
+glow_normalized = true
+glow_strength = 1.46
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_length = 10.0
+volumetric_fog_ambient_inject = 0.42
+volumetric_fog_sky_affect = 0.582
